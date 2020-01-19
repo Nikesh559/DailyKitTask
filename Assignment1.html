@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
+  <link rel="stylesheet" href="https://fontawesome.bootstrapcheatsheets.com/">
+<title>Star Wars</title>
+<style>
+*{
+  margin: 0;
+}
+/* Heading content */
+header{
+  background-color: black;
+}
+header img{
+    height:60px;
+}
+/* button */
+.sort{
+  border:2px solid black;
+  display: inline-block;
+  margin:10px;
+  border-radius: 4px;
+}
+.sort h3{
+  color: grey;
+  display: inline;
+  margin: 10px;
+}
+button{
+  border:none;
+  cursor: pointer;
+  background-color: black;
+  font-size: 15px;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 4px;
+  margin: 10px 20px;
+}
+/* Filter */
+.filter input{
+  width: 407px;
+  height: 40px;
+  border-radius: 8px;
+  padding-left: 10px;
+  margin: 10px 10px;
+}
+.filter input:focus{
+  border: 2px solid black;
+}
+.filter i{
+  color: grey;
+  font-size: 20px;
+  margin-left: -40px;
+}
+.filter input:focus+i{
+  color: black;
+}
+/* Tables content */
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+tr{
+  cursor: pointer;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+</style>
+</head>
+<body>
+<!-- Heading -->
+<header><center><img src="starwars.png" alt=""></center></header>
+<!-- button -->
+<div class="sort">
+  <h3>Sort By:</h3>
+  <button onclick="sortTable(0)">Name</button>
+  <button onclick="sortTable(1)">Height</button>
+</div>
+<!-- Filter -->
+<div class="filter">
+  <input type="text" id="myInput"placeholder="Search..." onkeyup="myFunction()">
+  <i class="fas fa-search"></i>
+</div>
+<!-- Table -->
+<table id="myTable">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Homeworld</th>
+        <th>Birth Year</th>
+    </tr>
+    <tr onclick="detail('Luke Skywalker')">
+        <td>Luke Skywalker</td>
+        <td>Male</td>
+        <td>172</td>
+        <td>Tatooine</td>
+        <td>19BBY</td>
+      </a>
+    </tr>
+    <tr onclick="detail('C-3P0')">
+        <td>C-3P0</td>
+        <td>n/a</td>
+        <td>167</td>
+        <td>Tatooine</td>
+        <td>112BBY</td>
+    </tr>
+    <tr onclick="detail('R2-D2')">
+        <td>R2-D2</td>
+        <td>n/a</td>
+        <td>96</td>
+        <td>Naboo</td>
+        <td>33BBY</td>
+    </tr>
+    <tr onclick="detail('Darth Vader')">
+        <td>Darth Vader</td>
+        <td>Male</td>
+        <td>202</td>
+        <td>Tatooine</td>
+        <td>41.9BBY</td>
+    </tr>
+    <tr onclick="detail('R5-D4')">
+        <td>R5-D4</td>
+        <td>n/a</td>
+        <td>97</td>
+        <td>Tatooine</td>
+        <td>Unknown</td>
+    </tr>
+    <tr onclick="detail('Leia Organa')">
+        <td>Leia Organa</td>
+        <td>Female</td>
+        <td>150</td>
+        <td>Alderaan</td>
+        <td>19BBY</td>
+    </tr>
+    <tr onclick="detail('Biggs Darklighter')">
+        <td>Biggs Darklighter</td>
+        <td>Male</td>
+        <td>183</td>
+        <td>Tatooine</td>
+        <td>24BBY</td>
+    </tr>
+    <tr onclick="detail('Owen Lars')">
+        <td>Owen Lars</td>
+        <td>Male</td>
+        <td>178</td>
+        <td>Tatooine</td>
+        <td>52BBY</td>
+    </tr>
+    <tr onclick="detail('Beru Whitesun lars')">
+        <td>Beru Whitesun lars</td>
+        <td>Female</td>
+        <td>165</td>
+        <td>Tatooine</td>
+        <td>47BBY</td>
+    </tr>
+    <tr onclick="detail('Obi-Wan Kenobi')">
+      <td>Obi-Wan Kenobi</td>
+      <td>Male</td>
+      <td>182</td>
+      <td>Stewjon</td>
+      <td>57BBY</td>
+    </tr>
+    <tr onclick="detail('Anakin Skywalker')">
+      <td>Anakin Skywalker</td>
+      <td>Male</td>
+      <td>188</td>
+      <td>Tatooine</td>
+      <td>41.9BBY</td>
+    </tr>
+    <tr onclick="detail('Wilhuff Tarkin')">
+      <td>Wilhuff Tarkin</td>
+      <td>Male</td>
+      <td>180</td>
+      <td>Eriadu</td>
+      <td>64BBY</td>
+    </tr>
+    <tr onclick="detail('Chewbacca')">
+      <td>Chewbacca</td>
+      <td>Male</td>
+      <td>228</td>
+      <td>Kashyyyk</td>
+      <td>200BBY</td>
+    </tr>
+    <tr onclick="detail('Han Solo')">
+      <td>Han Solo</td>
+      <td>Male</td>
+      <td>180</td>
+      <td>Corellia</td>
+      <td>29BBY</td>
+    </tr>
+    <tr onclick="detail('Greedo')">
+    <td>Greedo</td>
+    <td>n/a</td>
+    <td>173</td>
+    <td>Rodia</td>
+    <td>44BBY</td>
+    </tr>
+    <tr onclick="detail('Wedge Antilles')">
+      <td>Wedge Antilles</td>
+      <td>Male</td>
+      <td>170</td>
+      <td>Corellia</td>
+      <td>21BBY</td>
+    </tr>
+    <tr onclick="detail('Yoda')">
+      <td>Yoda</td>
+      <td>Male</td>
+      <td>66</td>
+      <td>Unknown</td>
+      <td>896BBY</td>
+    </tr>
+    <tr onclick="detail('Palpatine')">
+      <td>Palpatine</td>
+      <td>Male</td>
+      <td>170</td>
+      <td>Naboo</td>
+      <td>82BBY</td>
+  </tr>
+</table>
+<br><br><br><br>
+</body>
+</html>
+<script>
+function detail(str){
+  window.open("detail/"+str+".html");
+}
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  dir = "asc"; 
+    while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+    
